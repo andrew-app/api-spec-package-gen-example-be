@@ -1,0 +1,21 @@
+name: Publish Specs as Packages
+
+on:
+  push:
+    branches:
+      - main
+env:
+    NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+jobs:
+    publish:
+        runs-on: ubuntu-latest
+    
+        steps:
+        - uses: actions/checkout@v4
+    
+        - uses: andrew-app/api-spec-package-gen@v1.0.0
+          with:
+            platform: 'andrew-app'
+            service: 'user'
+            access: 'private'
+            spec-directory: './specs'
