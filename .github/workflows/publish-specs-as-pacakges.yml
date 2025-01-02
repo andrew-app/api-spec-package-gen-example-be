@@ -8,20 +8,12 @@ env:
     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 jobs:
     publish:
-        runs-on: ubuntu-latest
+        runs-on: macos-latest
     
         steps:
         - uses: actions/checkout@v4
-
-        - name: Install Node.js
-          uses: actions/setup-node@v4
-          with:
-            node-version: '20'
-        
-        - name: Install Node-Gyp
-          run: npm install -g node-gyp
-          
-        - uses: andrew-app/api-spec-package-gen@v1.1.0
+                  
+        - uses: andrew-app/api-spec-package-gen@v1.0.0
           with:
             platform: 'andrew-app'
             service: 'user'
