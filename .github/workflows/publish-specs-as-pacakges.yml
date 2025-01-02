@@ -13,7 +13,7 @@ jobs:
         steps:
         - uses: actions/checkout@v4
 
-        - uses: andrew-app/api-spec-package-gen@v1.0.0
+        - uses: andrew-app/api-spec-package-gen@v1.2.0
           with:
             platform: 'andrew-app'
             service: 'user'
