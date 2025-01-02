@@ -8,17 +8,14 @@ env:
     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 jobs:
     publish:
-        runs-on: macos-latest
+        runs-on: ubuntu-latest
     
         steps:
         - uses: actions/checkout@v4
 
-        - name: Install node-gyp
-          run: npm install node-gyp
-
-        - uses: andrew-app/api-spec-package-gen@v1.0.0
+        - uses: andrew-app/api-spec-package-gen@v1.3.0
           with:
             platform: 'andrew-app'
             service: 'user'
             access: 'private'
-            spec-directory: 'specs'
+            spec-directory: './specs'
